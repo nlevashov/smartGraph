@@ -10,7 +10,7 @@ graph<E, V, INFO> MST_Kruskal (graph<E, V, INFO> & g) {
 	auto vertecies = g.vertecies();
 	std::multiset<typename graph<E, V, INFO>::edge> sorted_edges(edges.begin(), edges.end());
 	disjoint_set_data<V> dsd(vertecies);
-	int k = 1;
+	size_t k = 1;
 	for (auto e : sorted_edges) {
 		if (dsd.merge(e.from()->name(), e.to()->name())) {
 			tree.push_edge(e.from()->name(), e.to()->name(), e.weight());

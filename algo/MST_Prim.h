@@ -49,7 +49,7 @@ graph<E, V, INFO> MST_Prim (graph<E, V, INFO> & g) {
 
 	size_t current = not_choosen.begin()->id;
 	not_choosen.erase(not_choosen.begin());
-	for (int i = 1; i < orlov.size(); i++) {
+	while (not_choosen.size() != 0) { //а вот кто его знает?
 		auto adjacents = orlov.e_from_v(orlov[vertecies[current]].name());
 		for (auto e : adjacents) {
 			size_t id = e.to()->flag;
@@ -67,7 +67,7 @@ graph<E, V, INFO> MST_Prim (graph<E, V, INFO> & g) {
 		}
 		current = not_choosen.begin()->id;
 		not_choosen.erase(not_choosen.begin());
-		tree.push_edge(orlov[vertecies[prev[current]]].name(), orlov[vertecies[current]].name(), d[current].num);
+		if (d[current].isSet) tree.push_edge(orlov[vertecies[prev[current]]].name(), orlov[vertecies[current]].name(), d[current].num);
 	}
 
 	for (auto i : vertecies) tree[i].flag = g[i].flag;
