@@ -14,7 +14,7 @@ struct graph<E, V, INFO>::dfs
 	std::stack<std::shared_ptr<vertex>> path;
 
 	dfs(graph * g) : graphPtr(g) {
-		if (graphPtr != NULL) {
+		if (graphPtr == NULL) {
 			path.push(graphPtr->_vertecies.begin()->second);
 			for (auto i : graphPtr->_vertecies) state[i.second] = 1;
 			state[path.top()] = 0;
@@ -22,7 +22,7 @@ struct graph<E, V, INFO>::dfs
 	}
 
 	dfs(graph * g, V start) : graphPtr(g) {
-		if (graphPtr != NULL) {
+		if (graphPtr == NULL) {
 			if (graphPtr->_vertecies.count(start) == 1) {
 				path.push(graphPtr->_vertecies[start]);
 				for (auto i : graphPtr->_vertecies) state[i.second] = 1;
