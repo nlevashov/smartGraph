@@ -28,7 +28,7 @@ struct graph<E, V, INFO>::full_dfs
                 for (auto i : graphPtr->_vertecies) state[i.second] = 0;
                 state[graphPtr->_vertecies[start]] = 1;
             } else {
-                throw "There is no vertex with this key\n"; //заменить на исключение
+                throw "There is no vertex with this key\n";
             }
         }
     }
